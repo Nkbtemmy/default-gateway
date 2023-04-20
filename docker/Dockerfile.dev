@@ -1,0 +1,7 @@
+# Base image
+FROM node:alpine AS base
+WORKDIR /app
+RUN npm install -g yarn --force
+COPY package.json ./
+RUN yarn install 
+COPY . .

@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.dev
+    volumes:
+      - app-data:/app
+    restart: always
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+    expose:
+      - ${PORT}
+    ports:
+      - '${PORT}:${PORT}'
+    command: npm run dev
+volumes:
+  app-data:
