@@ -13,14 +13,16 @@ dotenv.config();
 
 const app = express();
 
+const auth_service = process.env.AUTH_SERVICE;
+const treatment_service = process.env.TREATMENT_SERVICE;
 // Define a proxy for each microservice
-const userProxy = createProxyMiddleware({
-  target: 'http://user-service:4000',
+const authProxy = createProxyMiddleware({
+  target: auth_service,
   changeOrigin: true,
 });
 
-const productProxy = createProxyMiddleware({
-  target: 'http://product-service:5000',
+const treatmentProxy = createProxyMiddleware({
+  target: treatment_service,
   changeOrigin: true,
 });
 
@@ -32,6 +34,14 @@ const limiter = rateLimit({
 })
 let cache = apicache.middleware
 // express configuration
+
+/** Welcome Route */
+app.get('/', (_, res) => {
+  return res.status(200).json({
+      status: 200,
+      message: "Welcome to the API Gateway"
+  })
+})
 // Apply the rate limiting middleware to all requests
 app.use(limiter)
 app.set('trust proxy', 1)
@@ -43,8 +53,8 @@ app.use(morgan('dev'));
 app.use(isAuth);
 
 // Register the proxies with the main Express application
-app.use('/api/users', cache('5 minutes'), userProxy);
-app.use('/api/products', cache('5 minutes'), productProxy);
+app.use('/api', authProxy);
+app.use('/products', cache('5 minutes'), treatmentProxy);
 app.use(
   `/api-docs`,
   swaggerUi.serve,
@@ -58,5 +68,5 @@ app.use('*', (req, res) => {
 // Start the server
 const PORT = process.env.PORT || 3030;
 app.listen(PORT, () => {
-  console.log(`Gateway server start at localhost:${PORT}`);
+  console.log(`Gateway server start at http://localhost:${PORT}`);
 });

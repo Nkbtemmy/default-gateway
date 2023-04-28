@@ -5,7 +5,7 @@
   "main": "src/index",
   "scripts": {
     "dev": "nodemon -r esm src/index.js",
-    "build": "rm -rf dist && babel src -d dist",
+    "build": "rm -rf dist && babel src --out-dir dist --source-maps inline --copy-files",
     "start": "npm run build && babel-node ./dist/index.js",
     "test": "npm run test"
   },

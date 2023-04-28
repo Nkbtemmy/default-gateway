@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-
 import swaggerDoc from './swagger.json';
 import patient from './users/patients';
 import pharmacists from './users/pharmacist';
@@ -28,7 +27,7 @@ const config = {
     description: '',
   },
   host,
-  basePath: `/api/${process.env.API_VERSION || 'v1'}`,
+  basePath: `/api`,
   schemes: ['http', 'https'],
   securityDefinitions: {
     JWT: {

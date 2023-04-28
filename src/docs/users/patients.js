@@ -1,7 +1,7 @@
 import responses from '../responses';
 
 const patients = {
-  '/auth/patients/signup': {
+  '/auth/register': {
     post: {
       tags: ['Patients'],
       security: [],
@@ -29,7 +29,7 @@ const patients = {
       responses,
     },
   },
-  '/auth/patients/login': {
+  '/auth/login': {
     post: {
       tags: ['Patients'],
       security: [],
