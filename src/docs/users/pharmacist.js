@@ -1,7 +1,7 @@
 import responses from '../responses';
 
 const pharmacists = {
-  '/auth/pharmacist/signup': {
+  '/auth/signup': {
     post: {
       tags: ['Pharmacist'],
       security: [],
@@ -13,14 +13,14 @@ const pharmacists = {
           required: true,
           schema: {
             example: {
-              name:"ndatumumuremyi",
+              name:"nkubito",
               gender:"male",
               age:12,
-              email:"paterne@gmail.com",
+              email:"nkubito@gmail.com",
               password:"password",
-              role:"Physician",
+              role:"Pharmacist",
               phoneNumber:"0786388768",
-              username:"paterne"
+              username:"nkubito"
             },
           },
         },
@@ -29,7 +29,7 @@ const pharmacists = {
       responses,
     },
   },
-  '/auth/pharmacist/login': {
+  '/auth/login/pharmacists': {
     post: {
       tags: ['Pharmacist'],
       security: [],
@@ -41,9 +41,8 @@ const pharmacists = {
           required: true,
           schema: {
             example: {
-              role:"Pharmacist",
-              email:"paterne@gmail.com",
-              password:"password"
+              "password":"passw",
+              "phoneNumber":"0787311654"
             },
           },
         },

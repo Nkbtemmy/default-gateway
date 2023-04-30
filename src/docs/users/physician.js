@@ -13,14 +13,14 @@ const physicians = {
           required: true,
           schema: {
             example: {
-              name:"ndatumumuremyi",
+              name:"nkubito",
               gender:"male",
               age:12,
-              email:"paterne@gmail.com",
+              email:"nkubito@gmail.com",
               password:"password",
               role:"Physician",
               phoneNumber:"0786388768",
-              username:"paterne"
+              username:"nkubito"
             },
           },
         },
@@ -29,7 +29,7 @@ const physicians = {
       responses,
     },
   },
-  '/auth/physician/login': {
+  '/auth/login/physicians': {
     post: {
       tags: ['Physician'],
       security: [],
@@ -41,8 +41,7 @@ const physicians = {
           required: true,
           schema: {
             example: {
-              role:"Physician",
-              email: 'admin@rinda.com',
+              email: 'admin@hospital.com',
               password: 'admin123!',
             },
           },

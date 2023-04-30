@@ -13,14 +13,14 @@ const patients = {
           required: true,
           schema: {
             example: {
-              name:"ndatumumuremyi",
+              name:"nkubito",
               gender:"male",
               age:12,
-              email:"paterne@gmail.com",
+              email:"nkubito@gmail.com",
               password:"password",
               role:"Physician",
               phoneNumber:"0786388768",
-              username:"paterne"
+              username:"nkubito"
             },
           },
         },
@@ -29,7 +29,7 @@ const patients = {
       responses,
     },
   },
-  '/auth/login': {
+  '/auth/login/patients': {
     post: {
       tags: ['Patients'],
       security: [],
@@ -41,9 +41,8 @@ const patients = {
           required: true,
           schema: {
             example: {
-              role:"Patient",
-              email: 'admin@rinda.com',
-              password: 'admin123!',
+              "password":"passw",
+              "username":"thunder"
             },
           },
         },
