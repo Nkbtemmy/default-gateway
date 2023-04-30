@@ -3,6 +3,7 @@ import swaggerDoc from './swagger.json';
 import patient from './users/patients';
 import pharmacists from './users/pharmacist';
 import physician from './users/physician';
+import User from './users';
 const defaults = swaggerDoc.paths;
 
 dotenv.config();
@@ -17,6 +18,7 @@ const paths = {
   ...patient,
   ...pharmacists,
   ...physician,
+  ...User,
 };
 
 const config = {
