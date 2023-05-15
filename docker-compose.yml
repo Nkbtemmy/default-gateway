@@ -3,7 +3,8 @@ services:
   app:
     build:
       context: .
-      dockerfile: .
+      dockerfile: Dockerfile
+      target: prod
     volumes:
       - app-data:/app
     restart: always

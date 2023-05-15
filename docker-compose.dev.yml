@@ -15,7 +15,7 @@ services:
       - ${PORT}
     ports:
       - '${PORT}:${PORT}'
-    command: npm run dev
+    command: pm2-runtime start npm -- run dev --name app -i max --watch
 volumes:
   app-data:
 # version: '3.8'

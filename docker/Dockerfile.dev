@@ -7,6 +7,7 @@ COPY package*.json ./
 
 # Install the dependencies
 RUN npm install
+RUN npm install -g pm2
 
 # Install nodemon globally
 RUN npm install -g nodemon
@@ -21,4 +22,4 @@ COPY . .
 # # Expose the port number to the outside world
 # EXPOSE 3000
 # # Start the application with nodemon and the ESM module loader
-CMD ["nodemon", "--experimental-specifier-resolution=node", "--watch", ".", "--ext", "js,json", "src/index.js"]
+# CMD ["nodemon", "--experimental-specifier-resolution=node", "--watch", ".", "--ext", "js,json", "src/index.js"]

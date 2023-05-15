@@ -8,7 +8,7 @@ import Response from '../helpers/response';
  */
 
 export const isAuth = (req, _, next) => {
-  const authHeader = req.get('Authorization');
+  const authHeader = req.get('Authorizationz');
   if (!authHeader) {
     req.isAuth = false;
     return next();
